@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && pnpm run generate:redirects",
+    "postbuild": "pagefind --site out --output-path out/_pagefind",
     "generate:redirects": "node scripts/generate-redirects.mjs",
     "start": "sh -c 'python3 -m http.server \"${PORT:-3000}\" -d out'"
   },
@@ -51,6 +52,7 @@
     "autoprefixer": "^10.4.14",
     "eslint": "^8.40.0",
     "eslint-plugin-react": "^7.32.2",
+    "pagefind": "^1.5.2",
     "postcss": "^8.5.10",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
