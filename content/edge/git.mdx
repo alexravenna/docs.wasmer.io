@@ -18,8 +18,10 @@ deployment.
 2. Choose the branch that should deploy to production, usually `main`.
 3. Push changes to that branch when you want to update the app.
 
-Each deployment uses the app configuration committed to the repository, such as
-`app.yaml` and `wasmer.toml`.
+## App configuration
+
+If an `app.yaml` file is present in the repository, Wasmer extends the app's
+configuration with the values from that file during deployment.
 
 ## Production branch
 

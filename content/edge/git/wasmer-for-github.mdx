@@ -10,8 +10,6 @@ deployed from GitHub.
 - A Wasmer account
 - Access to the GitHub repository you want to deploy
 - A Wasmer Edge app, or permission to create one
-- App configuration committed to the repository, usually `app.yaml` and
-  `wasmer.toml`
 
 ## Connect a repository
 
@@ -38,11 +36,10 @@ branch can be deployed through the Git connection.
 
 </Steps>
 
-## What gets deployed
+## App configuration
 
-Wasmer deploys the source and configuration from the connected repository. Keep
-the files needed to build and run the app in the repository, including
-`app.yaml` and `wasmer.toml` when your project uses them.
+If an `app.yaml` file is present in the repository, Wasmer extends the app's
+configuration with the values from that file during deployment.
 
 ## Pull requests
 
