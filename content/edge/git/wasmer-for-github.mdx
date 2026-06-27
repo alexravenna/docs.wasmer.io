@@ -1,0 +1,69 @@
+import { Steps } from '@components/nextra-theme';
+
+# Deploy GitHub repositories with Wasmer
+
+Wasmer for GitHub connects a GitHub repository to Wasmer Edge so changes can be
+deployed from GitHub.
+
+## Before you start
+
+- A Wasmer account
+- Access to the GitHub repository you want to deploy
+- A Wasmer Edge app, or permission to create one
+- App configuration committed to the repository, usually `app.yaml` and
+  `wasmer.toml`
+
+## Connect a repository
+
+<Steps>
+
+### Open your Wasmer Edge app
+
+Go to the Wasmer dashboard and select the app you want to connect to GitHub.
+
+### Connect GitHub
+
+Open the app's Git settings and choose GitHub as the repository provider. If
+prompted, authorize Wasmer to access the repository or organization.
+
+### Select the repository and branch
+
+Choose the repository that contains your app and select the branch Wasmer should
+deploy to production. Most apps use `main`.
+
+### Deploy
+
+Save the connection and deploy the app. Future changes pushed to the selected
+branch can be deployed through the Git connection.
+
+</Steps>
+
+## What gets deployed
+
+Wasmer deploys the source and configuration from the connected repository. Keep
+the files needed to build and run the app in the repository, including
+`app.yaml` and `wasmer.toml` when your project uses them.
+
+## Pull requests
+
+Use pull requests to review changes before merging them into the production
+branch. If your app needs a one-off deployment while a change is still in review,
+you can deploy that branch from a local checkout with `wasmer deploy`.
+
+## Troubleshooting
+
+### I do not see my repository
+
+Make sure the GitHub account or organization connected to Wasmer has access to
+the repository. For organization repositories, an organization owner may need to
+approve access.
+
+### A deployment did not start
+
+Check that the repository is connected to the right app and that the pushed
+branch is the branch configured for deployment. You can still deploy manually
+from the repository checkout:
+
+```bash copy
+wasmer deploy
+```

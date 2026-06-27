@@ -1,0 +1,45 @@
+import { Card, Cards, Callout } from '@components/nextra-theme';
+
+# Deploy Git repositories on Wasmer Edge
+
+Wasmer Edge can deploy an app from a connected Git repository. This lets you keep
+your source code and deployment configuration in Git while Wasmer handles the
+deployment.
+
+<Callout type="info">
+  Git deployments currently focus on GitHub repositories. If you use another Git
+  provider, you can still deploy from a local checkout with
+  [`wasmer deploy`](/edge/cli#deploying-an-app-wasmer-deploy).
+</Callout>
+
+## How Git deployments work
+
+1. Connect a repository to a Wasmer Edge app.
+2. Choose the branch that should deploy to production, usually `main`.
+3. Push changes to that branch when you want to update the app.
+
+Each deployment uses the app configuration committed to the repository, such as
+`app.yaml` and `wasmer.toml`.
+
+## Production branch
+
+The production branch is the branch Wasmer treats as the source of the live app.
+Most projects use `main`, but you can choose the branch that matches your release
+process.
+
+## Deploy without Git
+
+You can always deploy from a local checkout:
+
+```bash copy
+wasmer deploy
+```
+
+This is useful when you are setting up a project for the first time, testing a
+deployment locally, or using a Git provider that is not connected to Wasmer Edge.
+
+## Provider guides
+
+<Cards>
+  <Card title="Wasmer for GitHub" href="/edge/git/wasmer-for-github" />
+</Cards>
